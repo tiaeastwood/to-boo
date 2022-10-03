@@ -16,7 +16,7 @@ app.use((req, res, next) => {
 	next();
 });
 
-app.use("/api/todolist", routes);
+app.use("/api/toboolist", routes);
 
 // connect to db
 mongoose
