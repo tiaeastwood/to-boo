@@ -84,3 +84,9 @@ header {
   justify-content: space-between;
   margin-top: 10px;
 }
+
+.transparent-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}

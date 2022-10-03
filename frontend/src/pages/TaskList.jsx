@@ -10,8 +10,6 @@ const Home = () => {
 			const response = await fetch("http://localhost:4000/api/toboolist");
 			const json = await response.json();
 
-			console.log(json);
-
 			if (response.ok) {
 				dispatch({ type: "SET_TASKS", payload: json });
 			}

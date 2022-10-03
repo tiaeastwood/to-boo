@@ -24,17 +24,15 @@ const TaskDetails = ({ task }) => {
 				{task.duedate}
 			</small>
 			<div className="button-container">
-				<span
-					className="material-symbols-outlined"
+				<button
+					className="material-symbols-outlined transparent-button"
 					onClick={handleClick}
 				>
 					delete
-				</span>
-				<span
-					className="material-symbols-outlined"
-				>
+				</button>
+				<button className="material-symbols-outlined transparent-button">
 					edit
-				</span>
+				</button>
 			</div>
 		</div>
 	);
