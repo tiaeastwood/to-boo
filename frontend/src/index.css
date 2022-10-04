@@ -5,7 +5,7 @@
 
 /* 1 */
 :root {
-  --darkpurple: rgb(116, 0, 193);
+  --darkpurple: rgb(43, 0, 71);
   --font-color: #333;
   --background-color: #eee;
   --link-color: cornflowerblue;
@@ -29,6 +29,7 @@ html {
 
 body {
   margin: 0;
+  background-color: lightgrey;
 }
 
 a, button {
@@ -46,7 +47,11 @@ a, button {
 header {
   background-color: var(--darkpurple);
   color: white;
-  padding: 1rem;
+  padding: 0.5rem 0 0.25rem 0.5rem;
+}
+
+header img {
+  width: 50px;
 }
 
 .welcome-button {
@@ -68,7 +73,7 @@ header {
 }
 
 .task-details {
-  background-color: lightgrey;
+  background-color: rgb(255, 255, 255);
   border-radius: 10px;
   padding: 0.5rem;
   margin: 0.5rem 0;
@@ -90,3 +95,27 @@ header {
   border: none;
   cursor: pointer;
 }
+
+.loading-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top: 5rem;
+}
+
+.loading-image {
+  width: 200px;
+  max-width: 50%;
+  animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+

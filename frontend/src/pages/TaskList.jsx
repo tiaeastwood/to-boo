@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import TaskDetails from "../components/TaskDetails";
 import { useTasksContext } from "../hooks/useTasksContext";
+import Loading from "../components/Loading";
 
 const Home = () => {
 	const { tasks, dispatch } = useTasksContext();
@@ -19,9 +20,8 @@ const Home = () => {
 	}, [dispatch]);
 
 	if (!tasks) {
-		return <p>Loading...</p>;
+		return <Loading />;
 	}
-
 
 	return (
 		<div className="home">
