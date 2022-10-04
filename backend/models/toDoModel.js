@@ -11,10 +11,6 @@ const toDoSchema = new Schema(
 			type: String,
 			required: true,
 		},
-		priority: {
-			type: Number,
-			required: true,
-		},
 		completed: {
 			type: String,
 			required: true,

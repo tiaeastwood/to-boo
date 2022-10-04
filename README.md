@@ -1,6 +1,10 @@
-# Spooky To Do App (ToBoo?)
+# ToBoo :ghost:
 
-Practice project MERN stack application (MongoDB, Express, React, Node)
+## A to do list app for ghosts!
 
-work in progress! 
+> Welcome to ToBoo, an app for balancing your unfinished business!
+
+
+Practice project MERN stack application(MongoDB, Express, React, Node)
+
 

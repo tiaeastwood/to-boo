@@ -36,7 +36,17 @@ a, button {
     cursor: pointer;
 }
 
+.home-text {
+  text-align: center;
+}
+
+.home img {
+  width: 60%;
+  max-width: 400px;
+}
+
 .page {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -47,11 +57,20 @@ a, button {
 header {
   background-color: var(--darkpurple);
   color: white;
-  padding: 0.5rem 0 0.25rem 0.5rem;
+  padding: 0.5rem 0 0.5rem 0.5rem;
+  display: flex;
+  width: 100%;
 }
 
 header img {
   width: 50px;
+  height: 50px;
+  margin-right: 0.25rem;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 35px;
 }
 
 .welcome-button {
@@ -119,3 +138,12 @@ header img {
   }
 }
 
+.add-new-task-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 50px;
+  border-radius: 50%;
+  background-color: white;
+  padding: 0.5rem;
+}
