@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import TaskDetails from "../components/TaskDetails";
 import { useTasksContext } from "../hooks/useTasksContext";
 import Loading from "../components/Loading";
+import ModalComponent from "../components/Modal";
 import TaskForm from "../components/TaskForm";
 
 const Home = () => {
 	const { tasks, dispatch } = useTasksContext();
 	const [show, setShow] = useState(false);
 
-	const handleClose = () => setShow(false);
-	const handleShow = () => setShow(true);
+	const toggleModal = () => setShow(!show);
 
 	useEffect(() => {
 		const fetchTasks = async () => {
@@ -29,23 +29,29 @@ const Home = () => {
 	}
 
 	return (
-		<div className="page">
-			<div className="tasks-container">
-				{tasks &&
-					tasks.map((task, index) => (
-						<TaskDetails key={task._id + index} task={task}>
-							{task.title}
-						</TaskDetails>
-					))}
+		<>
+			<div className="page">
+				<div className="tasks-container">
+					{tasks &&
+						tasks.map((task, index) => (
+							<TaskDetails key={task._id + index} task={task}>
+								{task.title}
+							</TaskDetails>
+						))}
+				</div>
+				<span
+					className="material-symbols-outlined add-new-task-button"
+					onClick={toggleModal}
+				>
+					add
+				</span>
 			</div>
-			<span
-				class="material-symbols-outlined add-new-task-button"
-				onClick={handleShow}
-			>
-				add
-			</span>
-			{show && <TaskForm handleClose={handleClose} />}
-		</div>
+			{show && (
+				<ModalComponent toggleModal={toggleModal} show={show} modalTitle="Create a New Task">
+					<TaskForm />
+				</ModalComponent>
+			)}
+		</>
 	);
 };
 

@@ -11,10 +11,6 @@ const toDoSchema = new Schema(
 			type: String,
 			required: true,
 		},
-		completed: {
-			type: String,
-			required: true,
-		},
 	},
 	{ timestamps: true },
 );

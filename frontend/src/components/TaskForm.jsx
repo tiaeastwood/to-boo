@@ -1,18 +1,21 @@
 import { useState } from "react";
 import { useTasksContext } from "../hooks/useTasksContext";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import { useEffect } from "react";
 
-const TaskForm = ({ handleClose }) => {
+const TaskForm = () => {
 	const { dispatch } = useTasksContext();
 	const [title, setTitle] = useState("");
-	const [dueDate, setDueDate] = useState("");
-	const [completed, setCompleted] = useState(false);
+	const [duedate, setduedate] = useState("");
 	const [error, setError] = useState(null);
 	const [emptyFields, setEmptyFields] = useState([]);
+	const [showSuccess, setShowSuccess] = useState(false);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-		const task = { title, dueDate, completed };
+		const task = { title, duedate };
 
 		const response = await fetch("http://localhost:4000/api/toboolist", {
 			method: "POST",
@@ -29,40 +32,50 @@ const TaskForm = ({ handleClose }) => {
 		}
 		if (response.ok) {
 			setTitle("");
-			setDueDate("");
-			setCompleted("");
+			setduedate("");
 			setError(null);
 			setEmptyFields([]);
-			console.log("new task added: ", json);
 			dispatch({ type: "CREATE_TASK", payload: json });
+
+			setShowSuccess(true);
+			setTimeout(() => setShowSuccess(false), 3000);
 		}
 	};
 
 	return (
-		<form className="create" onSubmit={handleSubmit}>
-			<h3>Add a new task:</h3>
-			<label htmlFor="title">Task Title:</label>
-			<input
-				type="text"
-				name="title"
-				value={title}
-				onChange={(e) => setTitle(e.target.value)}
-				className={emptyFields.includes("title") ? "error" : ""}
-			/>
-			<label htmlFor="dueDate">Due Date:</label>
-			<input
-				type="date"
-				name="dueDate"
-				value={dueDate}
-				onChange={(e) => setDueDate(e.target.value)}
-				className={emptyFields.includes("dueDate") ? "error" : ""}
-			/>
-			<button type="submit">Submit</button>
+		<Form className="task-Form" onSubmit={handleSubmit}>
+			<Form.Group className="mb-3" controlId="formBasicTitle">
+				<Form.Label>Task Title:</Form.Label>
+				<Form.Control
+					type="text"
+					placeholder="Enter task"
+					onChange={(e) => setTitle(e.target.value)}
+					value={title}
+				/>
+			</Form.Group>
+			<Form.Group className="mb-3" controlId="formBasicDate">
+				<Form.Label>Due Date:</Form.Label>
+				<Form.Control
+					type="date"
+					onChange={(e) => setduedate(e.target.value)}
+					value={duedate}
+				/>
+			</Form.Group>
+			<div className="d-grid gap-2">
+				<Button variant="primary" size="lg" type="submit">
+					Submit
+				</Button>
+			</div>
 
-			{error && <div className="error">{error}</div>}
-
-			<button onClick={handleClose}>Cancel</button>
-		</form>
+			<div className="message-area">
+				{showSuccess && (
+					<div>
+						<p>Task Added!</p>
+					</div>
+				)}
+				{error && <div className="error">{error}</div>}
+			</div>
+		</Form>
 	);
 };
 

@@ -27,7 +27,7 @@ const getToDo = async (req, res) => {
 
 // create new todo
 const createToDo = async (req, res) => {
-	const { title, duedate, completed } = req.body;
+	const { title, duedate } = req.body;
 
 	// check if any of the fields haven't been filled in and create specific error message if so
 	let emptyFields = [];
@@ -37,9 +37,6 @@ const createToDo = async (req, res) => {
 	if (!duedate) {
 		emptyFields.push("duedate");
 	}
-	if (!completed) {
-		emptyFields.push("completed");
-	}
 	if (emptyFields.length > 0) {
 		return res
 			.status(400)
@@ -48,7 +45,7 @@ const createToDo = async (req, res) => {
 
 	// add doc to db
 	try {
-		const todo = await ToDo.create({ title, duedate, completed });
+		const todo = await ToDo.create({ title, duedate });
 		res.status(200).json(todo);
 	} catch (error) {
 		res.status(400).json({ error: error.message });
