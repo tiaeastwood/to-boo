@@ -5,19 +5,27 @@
 
 /* 1 */
 :root {
-  --darkpurple: rgb(43, 0, 71);
+  --dark: rgb(43, 0, 71);
+  --light: rgb(235, 217, 255);
   --font-color: #333;
-  --background-color: #eee;
   --link-color: cornflowerblue;
 }
 
-/* 2 */
-[data-theme="dark"] {
-  --font-color: #eee;
-  --background-color: #333;
-  --link-color: lightblue;
+#light {
+  background-color: var(--light);
 }
 
+#dark {
+  background-color: var(--dark);
+}
+
+.light-text {
+  color: white;
+}
+
+.dark-text {
+  color: black;
+}
 
 html {
   box-sizing: border-box;
@@ -29,14 +37,12 @@ html {
 
 body {
   margin: 0;
-  background-color: rgb(235, 217, 255);
 }
 
 a, button {
     cursor: pointer;
     text-decoration: none;
 }
-
 
 .home-text {
   text-align: center;
@@ -73,10 +79,12 @@ a, button {
 }
 
 header {
-  background-color: var(--darkpurple);
+  background-color: black;
   color: white;
-  padding: 0.5rem 0 0.5rem 0.5rem;
+  padding: 0.75rem;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
 }
 
@@ -89,20 +97,20 @@ header img {
 header h1 {
   margin: 0;
   font-size: 35px;
-    color: white;
+  color: white;
 }
 
 .welcome-button {
   background-color: transparent;
-  border: 1px solid var(--darkpurple);
+  border: 1px solid var(--dark);
   border-radius: 10px;
   padding: 0.5rem;
-  color: var(--darkpurple);
+  color: var(--dark);
   font-size: 20px;
 }
 
 .welcome-button:hover {
-  background-color: var(--darkpurple);
+  background-color: var(--dark);
   color: white;
 }
 
@@ -177,4 +185,50 @@ header h1 {
   display: flex;
   justify-content: center;
   padding: 0.5rem;
+}
+
+/* Toggle Switch */
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 56px;
+  height: 30px;
+}
+.toggle-switch input[type="checkbox"] {
+  display: none;
+}
+.toggle-switch .switch {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 25px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: background-color 0.2s ease;
+}
+.toggle-switch .switch::before {
+  position: absolute;
+  content: "";
+  left: 2px;
+  top: 2px;
+  width: 26px;
+  height: 26px;
+  background-color: #aaa;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  background-size: cover;
+  background-image: url(https://img.icons8.com/ios-glyphs/2x/sun.png);
+}
+
+.toggle-switch input[type="checkbox"]:checked + .switch::before {
+  transform: translateX(25px);
+  background-color: #6699cc;
+  background-size: cover;
+  background-image: url(https://img.icons8.com/sf-ultralight-filled/2x/moon-symbol.png);
+}
+.toggle-switch input[type="checkbox"]:checked + .switch {
+  background-color: #336699;
 }

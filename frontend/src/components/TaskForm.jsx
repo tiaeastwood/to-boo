@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useTasksContext } from "../hooks/useTasksContext";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { useEffect } from "react";
 
 const TaskForm = () => {
 	const { dispatch } = useTasksContext();
