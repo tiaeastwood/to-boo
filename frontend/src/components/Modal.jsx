@@ -10,7 +10,7 @@ const ModalComponent = ({ toggleModal, show, children, modalTitle }) => {
 			<Modal.Body>{children}</Modal.Body>
 			<Modal.Footer>
 				<Button
-					variant="primary"
+					variant="danger"
 					onClick={toggleModal}
 					size="lg"
 				>

@@ -29,21 +29,39 @@ html {
 
 body {
   margin: 0;
-  background-color: lightgrey;
+  background-color: rgb(235, 217, 255);
 }
 
 a, button {
     cursor: pointer;
+    text-decoration: none;
 }
+
 
 .home-text {
   text-align: center;
 }
 
+.home h1 {
+  margin-top: -6rem;
+}
+
 .home img {
+  margin-top: 1rem;
   width: 60%;
   max-width: 400px;
+  -webkit-animation: mover 2s infinite  alternate;
+  animation: mover 2s infinite  alternate;
 }
+@-webkit-keyframes mover {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-20px); }
+}
+@keyframes mover {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-20px); }
+}
+
 
 .page {
   height: 100vh;
@@ -71,6 +89,7 @@ header img {
 header h1 {
   margin: 0;
   font-size: 35px;
+    color: white;
 }
 
 .welcome-button {

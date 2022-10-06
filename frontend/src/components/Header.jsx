@@ -1,13 +1,12 @@
-import YinYangGhosts from "../images/yinyang_ghosts.png"
+import YinYangGhosts from "../images/yinyang_ghosts.png";
 import { Link } from "react-router-dom";
 
 const Header = () => {
 	return (
 		<header className="header">
 			<Link to="/">
-				<img src={YinYangGhosts} alt="ToBoologo" />
+				<h1>ToBoo</h1>
 			</Link>
-			<h1>ToBoo</h1>
 		</header>
 	);
 };

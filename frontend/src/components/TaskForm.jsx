@@ -62,7 +62,7 @@ const TaskForm = () => {
 				/>
 			</Form.Group>
 			<div className="d-grid gap-2">
-				<Button variant="primary" size="lg" type="submit">
+				<Button variant="dark" size="lg" type="submit">
 					Submit
 				</Button>
 			</div>
